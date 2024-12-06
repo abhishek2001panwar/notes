@@ -2,13 +2,15 @@
 // Import in _app.js
 import 'intro.js/introjs.css';
 import React from 'react'
+import Navbar from '../Navbar';
+import Card from '../Card/page';
 
-import SignupPage from './components/Signup/page';
 
 const page = () => {
   return (
    <>
-  <SignupPage />
+   <Navbar />
+   <Card />
 
    </>
   )
