@@ -95,7 +95,7 @@ export default function Navbar() {
 
         {/* Icons */}
         <div
-          className={`absolute md:static right-0 top-12 md:top-0 flex flex-col md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none ${isMenuOpen ? "block" : "hidden"
+          className={`absolute z-[9999] md:static right-0 top-12 md:top-0 flex flex-col md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none ${isMenuOpen ? "block" : "hidden"
             } md:flex`}
         >
           <Link
@@ -117,7 +117,7 @@ export default function Navbar() {
 
             {/* Profile Box */}
             {isProfileOpen && userData && (
-              <div className="absolute right-0 mt-2 w-86 z-[100px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
+              <div className="absolute right-0 mt-2 w-86 z-[9999] bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
                 {/* User's Name Initial in Big Circle */}
                 <div className="flex flex-col items-center space-y-4">
                   {/* Circle */}
