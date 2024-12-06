@@ -6,7 +6,6 @@ import {
 } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { marked } from 'marked';
 import { supabase } from '@/helpers/supabase';
 import { v4 as uuidv4 } from 'uuid';
 
