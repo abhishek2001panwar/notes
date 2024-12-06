@@ -117,7 +117,7 @@ export default function Navbar() {
 
             {/* Profile Box */}
             {isProfileOpen && userData && (
-              <div className="absolute right-0 mt-2 w-86 z-99 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
+              <div className="absolute right-0 mt-2 w-86 z-[100px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
                 {/* User's Name Initial in Big Circle */}
                 <div className="flex flex-col items-center space-y-4">
                   {/* Circle */}
