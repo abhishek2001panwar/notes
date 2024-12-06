@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // Profile toggle state
   const [startTour, setStartTour] = useState(false);
   const [userData, setUserData] = useState(null); // User data state
@@ -79,23 +79,23 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between md:px-16 items-center p-10 dark:bg-gray-200">
       {/* Left: App Name */}
-      <div className="text-xl font-bold text-gray-900 dark:text-white">NotesApp</div>
+      <div className="text-xl font-bold text-gray-900 dark:text-white ">NotesApp</div>
 
       {/* Right: Icons and Mobile Menu */}
       <div className="relative">
         {/* Menu Icon for Mobile */}
         <div className="md:hidden">
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(isMenuOpen)}
             className="text-gray-900 dark:text-white focus:outline-none"
           >
-            {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {/* {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />} */}
           </button>
         </div>
 
         {/* Icons */}
         <div
-          className={`absolute z-[9999] md:static right-0 top-12 md:top-0 flex flex-col md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none ${isMenuOpen ? "block" : "hidden"
+          className={`absolute z-[9999] md:static right-0  md:top-0 flex flex-row md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none 
             } md:flex`}
         >
           <Link
