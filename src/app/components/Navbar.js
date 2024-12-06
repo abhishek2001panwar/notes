@@ -95,7 +95,7 @@ export default function Navbar() {
 
         {/* Icons */}
         <div
-          className={`absolute z-[9999] md:static right-0  md:top-0 flex flex-row md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none 
+          className={`absolute z-[9999] md:static -right-4 md:right-0  md:top-0 flex flex-col md:flex-row items-center md:gap-4 bg-gray-100 dark:bg-gray-800 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none rounded-md md:rounded-none 
             } md:flex`}
         >
           <Link
@@ -124,28 +124,28 @@ export default function Navbar() {
 
             {/* Profile Box */}
             {isProfileOpen && userData && (
-              <div className="absolute right-0 mt-2 w-86 z-[9999] bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
-                {/* User's Name Initial in Big Circle */}
-                <div className="flex flex-col items-center space-y-4">
-                  {/* Circle */}
-                  <div className="w-20 h-20 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-3xl">
-                    {userData.name.charAt(0).toUpperCase()}
-                  </div>
+  <div className="absolute right-0 mt-2 w-86 md:w-86 z-[9999]  bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg rounded-md p-6">
+    {/* User's Name Initial in Big Circle */}
+    <div className="flex flex-col items-center space-y-4">
+      {/* Circle */}
+      <div className="w-20 h-20 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-3xl">
+        {userData.name.charAt(0).toUpperCase()}
+      </div>
 
-                  {/* User Email */}
-                  <div className="text-center">
-                    <p className="font-medium text-lg">{userData.email}</p>
-                  </div>
+      {/* User Email */}
+      <div className="text-center">
+        <p className="font-medium text-lg truncate max-w-full">{userData.email}</p>
+      </div>
 
-                  {/* Total Notes */}
-                  <div className="text-center">
-                    <p className="text-md text-gray-500 dark:text-gray-300">
-                      Total Notes: <span className="font-bold">{notes.length}</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+      {/* Total Notes */}
+      <div className="text-center">
+        <p className="text-md text-gray-500 dark:text-gray-300">
+          Total Notes: <span className="font-bold">{notes.length}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+)}
 
 
           </div>

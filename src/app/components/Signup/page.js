@@ -171,7 +171,9 @@ function SignupPage() {
                     >
                         {loading ? "Processing..." : "Signup"}
                     </button>
-                    <div className="mt-4 text-center text-gray-500">
+                   
+                </form>
+                <div className="mt-4 text-center text-gray-500">
                         Already have an account?{" "}
                         <button
                             onClick={() => router.push("/components/Login")}
@@ -180,7 +182,6 @@ function SignupPage() {
                             Login
                         </button>
                     </div>
-                </form>
                 {message && (
                     <p className={`mt-4 text-center ${message.includes('Successful') ? 'text-green-600' : 'text-green-600'
                         }`}>

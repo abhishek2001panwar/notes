@@ -120,7 +120,9 @@ const LoginPage = () => {
                         {loading ? "Logging in..." : "Login"}
                     </button>
 
-                    <div className="text-center mt-4">
+                    
+                </form>
+                <div className="text-center mt-4">
                         <span className="text-sm text-gray-600">
                             Don&apos;t have an account?{" "}
                             <button
@@ -133,7 +135,6 @@ const LoginPage = () => {
                             </button>
                         </span>
                     </div>
-                </form>
             </div>
         </div>
     );
