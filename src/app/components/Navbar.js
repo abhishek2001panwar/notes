@@ -105,6 +105,13 @@ export default function Navbar() {
           >
             <IoSettings size={25} />
           </Link>
+          <button
+            onClick={handleLogout}
+            id="step4"
+            className="p-2 text-gray-900 dark:text-white hover:text-green-500"
+          >
+            <IoLogOut size={27} />
+          </button>
           <div className="relative z-999">
             {/* Profile Icon */}
             <button
@@ -142,13 +149,7 @@ export default function Navbar() {
 
 
           </div>
-          <button
-            onClick={handleLogout}
-            id="step4"
-            className="p-2 text-gray-900 dark:text-white hover:text-green-500"
-          >
-            <IoLogOut size={27} />
-          </button>
+        
         </div>
       </div>
       <TourGuide startTour={startTour} />
