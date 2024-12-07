@@ -15,27 +15,25 @@ const TourGuide = ({ startTour }) => {
                         title:  "Step 1: Here you can add notes",
                    
                     },
-                  
-                   
+                    {
+                        element: "#step2",
+                        intro: "This is Step 2! You can view  your Profile here.",
+                        title: "Step 2: View Profile",
+                    },
                     {
                         element: "#step3",
-                        intro: "This is Step 4! You can view  your Profile here.",
-                        title: "Step 3: View Profile",
+                        intro: "This is Step 3! You can logout here.",
+                        title: "Step 3: Logout",
                     },
                     {
                         element: "#step4",
-                        intro: "This is Step 5! You can logout here.",
-                        title: "Step 4: Logout",
+                        intro: "This is Step 4! You can view your settings here.",
+                        title: "Step 4: Settings",
                     },
                     {
                         element: "#step5",
-                        intro: "This is Step 6! You can view your settings here.",
-                        title: "Step 5: Settings",
-                    },
-                    {
-                        element: "#step6",
-                        intro: "Now you can add  notes here.", 
-                        title: "Step 6: Add a notes",
+                        intro: "Now you can add  notes here. and if want to delete long press on the card.", 
+                        title: "Step 5: Add/delete a notes",
                     }
                 ],
                 showStepNumbers: false,

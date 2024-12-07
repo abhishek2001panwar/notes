@@ -99,7 +99,7 @@ export default function Navbar() {
             } md:flex`}
         >
           <Link
-            id="step5"
+            id="step4"
             className="p-2 text-gray-900 dark:text-white hover:text-green-500"
             href="/components/Settings"
           >
@@ -107,7 +107,7 @@ export default function Navbar() {
           </Link>
           <button
             onClick={handleLogout}
-            id="step4"
+            id="step3"
             className="p-2 text-gray-900 dark:text-white hover:text-green-500"
           >
             <IoLogOut size={27} />
@@ -116,7 +116,7 @@ export default function Navbar() {
             {/* Profile Icon */}
             <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
-              id="step3"
+              id="step2"
               className="p-2 text-gray-900 dark:text-white hover:text-green-500"
             >
               <FaUserLarge size={25} />
