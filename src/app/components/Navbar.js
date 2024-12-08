@@ -96,6 +96,7 @@ export default function Navbar() {
             {/* {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />} */}
           </button>
         </div>
+        <ToastContainer />
 
         {/* Icons */}
         <div
@@ -109,6 +110,7 @@ export default function Navbar() {
           >
             <IoSettings size={25} />
           </Link>
+         
           <button
             onClick={handleLogout}
             id="step3"
@@ -116,7 +118,7 @@ export default function Navbar() {
           >
             <IoLogOut size={27} />
           </button>
-            <ToastContainer />
+           
           <div className="relative z-999">
             {/* Profile Icon */}
             <button
