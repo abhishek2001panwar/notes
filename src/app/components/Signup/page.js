@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, Check } from 'lucide-react';
 import { supabase } from "@/helpers/supabase";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 function SignupPage() {
@@ -175,12 +176,12 @@ function SignupPage() {
                 </form>
                 <div className="mt-4 text-center text-gray-500">
                         Already have an account?{" "}
-                        <button
-                            onClick={() => router.push("/components/Login")}
+                        <Link
+                            href="/components/Login"
                             className="text-blue-500 hover:underline focus:outline-none"
                         >
                             Login
-                        </button>
+                        </Link>
                     </div>
                 {message && (
                     <p className={`mt-4 text-center ${message.includes('Successful') ? 'text-green-600' : 'text-green-600'

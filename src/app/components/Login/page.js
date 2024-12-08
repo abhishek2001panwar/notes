@@ -4,6 +4,7 @@ import { Camera, Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import { supabase } from '@/helpers/supabase';
 import { SiSimplelogin } from 'react-icons/si';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 const LoginPage = () => {
@@ -125,14 +126,12 @@ const LoginPage = () => {
                 <div className="text-center mt-4">
                         <span className="text-sm text-gray-600">
                             Don&apos;t have an account?{" "}
-                            <button
-                                type="button"
-                                
-                                onClick={() => router.push("/components/Signup")}
+                            <Link
+                                href="/components/Signup"
                                 className="text-blue-500 hover:underline focus:outline-none"
                             >
                                 Sign Up
-                            </button>
+                            </Link>
                         </span>
                     </div>
             </div>
