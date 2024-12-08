@@ -11,6 +11,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaArrowLeft } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
+
 
 const CustomHeading = ({ level, children }) => {
   const headingStyles = {
@@ -39,6 +42,8 @@ const Form = () => {
   const [detectedFormats, setDetectedFormats] = useState([]);
   const [suggestedTags, setSuggestedTags] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
 
   // Advanced Markdown detection
@@ -216,21 +221,37 @@ const Form = () => {
     }
   };
 
+  const handleGoBack = () => {
+    router.back(); // Navigate to the previous page
+  };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xs border-[1px]">
-      {/* File Upload */}
-      {/* <div className="mb-8">
-        <label className="block text-gray-800 dark:text-white font-semibold mb-2">Upload File</label>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="block w-full px-4 py-2 text-gray-800 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600"
-        />
-        {file && (
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">Selected File: {file.name}</p>
-        )}
-      </div> */}
+    <div className="max-w-3xl mx-auto mt-20 md:mt-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xs border-[1px]">
+     
+
+     <div className="absolute top-4 left-2 md:left-4 z-10">
+        <button 
+          onClick={handleGoBack}
+          className="
+            flex items-center justify-center 
+            p-4 rounded-full 
+            bg-gray-100 dark:bg-gray-700 
+            hover:bg-gray-200 dark:hover:bg-gray-600 
+            transition-colors duration-200 
+            shadow-lg
+            border-[1px] border-gray-200 dark:border-gray-600
+            focus:outline-none focus:ring-2 focus:ring-gray-200
+          "
+          aria-label="Go back"
+        >
+          <FaArrowLeft className="
+            text-black dark:text-gray-900 
+            text-sm sm:text-base 
+            w-4 h-4 sm:w-5 sm:h-5
+          "/>
+        </button>
+      </div>
+
       <div className="mb-8">
         <label className="block text-gray-800 dark:text-white font-semibold mb-2">
           Upload File
@@ -273,12 +294,7 @@ const Form = () => {
       </div>
 
 
-      {/* Autosuggested Marks */}
-      {/* <div className="mb-8">
-        <label className="block text-gray-800 dark:text-white font-semibold mb-2">Autosuggested Marks</label>
-        <p className="text-xl font-bold text-green-500">{marks}</p>
-      </div> */}
-
+      
       {/* Detected Markdown Formats */}
       <div className="mb-8">
         <label className="block text-gray-800 dark:text-white font-light mb-2">Detected Markdown Formats</label>
