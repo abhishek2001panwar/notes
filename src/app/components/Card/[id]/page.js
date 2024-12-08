@@ -72,7 +72,9 @@ const Page = () => {
                                 key={index}
                                 className="bg-blue-200 text-blue-800 text-xs font-medium shadow-sm px-3 py-1 rounded-full"
                             >
-                                {tag}
+                                {
+                                    tag.length>10?tag.slice(0,10)+'...':tag
+                                }
                             </span>
                         ))}
                     </div>

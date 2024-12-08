@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   FaBold, FaItalic, FaHeading, FaMicrophone, FaMicrophoneSlash,
-  FaListUl, FaListOl, FaLink, FaCode, FaQuoteRight, FaTable
+  FaListUl, FaListOl, FaLink, FaCode, FaQuoteRight, FaTable, FaImage
 } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -210,8 +210,8 @@ const Form = () => {
     } catch (error) {
       console.error('Error submitting note:', error.message);
       alert('Failed to submit note. Check console for details.');
-    } 
-    finally{
+    }
+    finally {
       setLoading(false)
     }
   };
@@ -307,7 +307,9 @@ const Form = () => {
                 key={index}
                 className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm"
               >
-                {tag}
+             {
+              tag.length > 10 ? `${tag.slice(0, 10)}...` : tag
+             }
               </span>
             ))
           ) : (
@@ -318,63 +320,77 @@ const Form = () => {
 
       {/* Markdown Note Input */}
       <div className="mb-8">
-        <label className="block text-gray-800 dark:text-white font-semibold mb-2">Add Note (Markdown Format)</label>
-        <div className="flex items-center space-x-2 mb-4">
+        <label className="block text-gray-800 dark:text-white font-semibold mb-2 text-sm md:text-base lg:text-lg">
+          Add Note (Markdown Format)
+        </label>
+
+        {/* Scrollable icon container */}
+        <div className="flex items-center space-x-2 mb-4 overflow-x-auto scrollbar-hide">
           <button
             onClick={() => addMarkdownSyntax('**bold** ')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaBold />
           </button>
           <button
             onClick={() => addMarkdownSyntax('_italic_ ')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaItalic />
           </button>
           <button
             onClick={() => addMarkdownSyntax('# Header\n')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaHeading />
           </button>
           <button
             onClick={() => addMarkdownSyntax('- List Item\n')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaListUl />
           </button>
           <button
             onClick={() => addMarkdownSyntax('1. Ordered List Item\n')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaListOl />
           </button>
           <button
             onClick={() => addMarkdownSyntax('[Link Text](https://example.com) ')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaLink />
           </button>
           <button
             onClick={() => addMarkdownSyntax('`code` ')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaCode />
           </button>
           <button
             onClick={() => addMarkdownSyntax('> Blockquote\n')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaQuoteRight />
           </button>
           <button
-            onClick={() => addMarkdownSyntax('| Column 1 | Column 2 |\n|---------|----------|\n| Value 1 | Value 2 |\n')}
-            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            onClick={() =>
+              addMarkdownSyntax('| Column 1 | Column 2 |\n|---------|----------|\n| Value 1 | Value 2 |\n')
+            }
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
           >
             <FaTable />
           </button>
+          <button
+            onClick={() => addMarkdownSyntax('![Image Alt Text](image_url) ')}
+            className="p-2 bg-gray-200 rounded dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex-shrink-0"
+          >
+            <FaImage />
+          </button>
         </div>
+
+
         <textarea
           value={note}
           onChange={(e) => setNote(e.target.value)}
@@ -426,8 +442,8 @@ const Form = () => {
         onClick={handleSubmit}
         disabled={loading}
         className={`mt-4 px-6 py-3 text-white text-sm font-medium rounded-lg ${loading
-            ? 'bg-green-300 cursor-not-allowed'
-            : 'bg-green-500 hover:bg-green-600'
+          ? 'bg-green-300 cursor-not-allowed'
+          : 'bg-green-500 hover:bg-green-600'
           }`}
       >
         {loading ? (
@@ -455,9 +471,9 @@ const Form = () => {
         ) : (
           'Save Note'
         )}
-       
+
       </button>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
